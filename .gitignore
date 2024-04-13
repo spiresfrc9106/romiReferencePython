@@ -1,0 +1,8 @@
+__pycache__
+simgui*.json
+networktables.json
+.coverage
+.simulationLogs
+.wpilib
+/venv*
+/.idea

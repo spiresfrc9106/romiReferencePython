@@ -109,7 +109,9 @@ Successfully installed robotpy-hal-2024.3.2.1 robotpy-halsim-ws-2024.3.2.1 robot
 
     * From the `romiReferencePython` directory, do a RobotPy sync:
       ```commandline
+
       python -m robotpy sync
+
       10:46:36:743 INFO    : robotpy.installer   : RobotPy Installer 2024.2.2
       10:46:36:744 INFO    : robotpy.installer   : -> caching files at C:\Users\MikeStitt\wpilib\2024\robotpy
       10:46:36:756 INFO    : sync                : RobotPy version in `pyproject.toml` is '2024.3.2.1'

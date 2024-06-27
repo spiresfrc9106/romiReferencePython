@@ -7,6 +7,7 @@
 import typing
 import commands2
 from subsystems.drivetrain import Drivetrain
+from utils.signalLogging import log
 
 
 class ArcadeDrive(commands2.Command):
@@ -32,4 +33,20 @@ class ArcadeDrive(commands2.Command):
         self.addRequirements(self.drive)
 
     def execute(self) -> None:
+        forward = self.forward()
+        rotation = self.rotation()
         self.drive.arcadeDrive(self.forward(), self.rotation())
+
+        log("driveForwardCmd", forward, "ratio")
+        log("driveRotationCmd", rotation, "ratio")
+        leftEncoderCount = self.drive.getLeftEncoderCount()
+        rightEncoderCount = self.drive.getRightEncoderCount()
+        log("driveLeftEncoder", leftEncoderCount, "todo")
+        log("driveRightEncoder", rightEncoderCount, "todo")
+        x = self.drive.getGyroAngleX()
+        y = self.drive.getGyroAngleY()
+        z = self.drive.getGyroAngleZ()
+        log("driveGyroAngleX", x, "todo")
+        log("driveGyroAngleY", y, "todo")
+        log("driveGyroAngleZ", z, "todo")
+

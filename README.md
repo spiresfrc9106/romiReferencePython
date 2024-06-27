@@ -130,6 +130,8 @@ Successfully installed robotpy-hal-2024.3.2.1 robotpy-halsim-ws-2024.3.2.1 robot
     of the controller.
   * Powerup the Romi
   * Connect to the Romi WiFi network
+    * The network SSID is something like `SSID WPILibPi-<number>` (where `<number>` is based on the Raspberry Pi serial number) with the WPA2 passphrase `WPILib2021!`.
+  * TODO add the steps the first time you power-up your Romi using `http://10.0.0.2/`
   * Go back to your Windows PowerShell Window.
     * This step can be confusing for those that know how to simulate and deploy to full-sized FRC robots. Use RobotPy to
       launch the WPILib simulator to control the Romi from the Windows PowerShell that is in the `romiReferencePython` directory:

@@ -85,6 +85,6 @@ class RobotContainer:
         """
         return ArcadeDrive(
             self.drivetrain,
-            lambda: self.controller.getRawAxis(4), # Logitech controller in "X" mode, right stick left/right
-            lambda: self.controller.getRawAxis(1), # Logitech congroller in "X" mode, left stick forward/back
+            lambda: -self.controller.getRawAxis(1), # XBox controller in "X" mode, right stick left/right
+            lambda: self.controller.getRawAxis(4), # XBox controller in "X" mode, left stick forward/back
         )

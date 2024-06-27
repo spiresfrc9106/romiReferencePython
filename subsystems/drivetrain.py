@@ -22,6 +22,7 @@ class Drivetrain(commands2.Subsystem):
         # The Romi has the left and right motors set to
         # PWM channels 0 and 1 respectively
         self.leftMotor = wpilib.Spark(0)
+        self.leftMotor.setInverted(True)
         self.rightMotor = wpilib.Spark(1)
 
         # The Romi has onboard encoders that are hardcoded

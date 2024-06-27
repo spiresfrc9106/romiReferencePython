@@ -20,9 +20,13 @@ class AutonomousDistance(commands2.SequentialCommandGroup):
         """
         super().__init__()
 
+        deg_to_turn = 0.8 * 90
         self.addCommands(
-            DriveDistance(-0.5, 10, drive),
-            TurnDegrees(-0.5, 180, drive),
-            DriveDistance(-0.5, 10, drive),
-            TurnDegrees(0.5, 180, drive),
+
+            DriveDistance(0.5, 12, drive), TurnDegrees(-0.5, deg_to_turn, drive),
+            DriveDistance(0.5, 12, drive), TurnDegrees(-0.5, deg_to_turn, drive),
+            DriveDistance(0.5, 12, drive), TurnDegrees(-0.5, deg_to_turn, drive),
+            DriveDistance(0.5, 12, drive), TurnDegrees(-0.5, deg_to_turn, drive),
+            #DriveDistance(-0.5, 10, drive),
+            #TurnDegrees(0.5, 180, drive),
         )

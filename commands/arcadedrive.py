@@ -39,10 +39,7 @@ class ArcadeDrive(commands2.Command):
 
         log("driveForwardCmd", forward, "ratio")
         log("driveRotationCmd", rotation, "ratio")
-        leftEncoderCount = self.drive.getLeftEncoderCount()
-        rightEncoderCount = self.drive.getRightEncoderCount()
-        log("driveLeftEncoder", leftEncoderCount, "todo")
-        log("driveRightEncoder", rightEncoderCount, "todo")
+
         x = self.drive.getGyroAngleX()
         y = self.drive.getGyroAngleY()
         z = self.drive.getGyroAngleZ()

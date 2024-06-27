@@ -53,6 +53,7 @@ import commands2
 
 from robotcontainer import RobotContainer
 from utils.signalLogging import SignalWrangler
+from utils.signalLogging import log
 
 # Uncomment these lines and set the port to the pycharm debugger to use the
 # Pycharm debug server to debug this code.
@@ -98,6 +99,10 @@ class MyRobot(commands2.TimedCommandRobot):
 
 
         commands2.CommandScheduler.getInstance().run()
+        leftEncoderCount = self.container.drivetrain.getLeftEncoderCount()
+        rightEncoderCount = self.container.drivetrain.getRightEncoderCount()
+        log("driveLeftEncoder", leftEncoderCount, "todo")
+        log("driveRightEncoder", rightEncoderCount, "todo")
         SignalWrangler().publishPeriodic()
 
     def disabledInit(self) -> None:

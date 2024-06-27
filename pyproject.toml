@@ -4,6 +4,8 @@
 #
 
 [tool.robotpy]
+# Version of robotpy this project depends on
+# to see what versions are available: https://pypi.org/pypi/robotpy/json
 
 # Version of robotpy this project depends on
 robotpy_version = "2024.3.2.1"

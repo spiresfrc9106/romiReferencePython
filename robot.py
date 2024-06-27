@@ -38,7 +38,7 @@
 #    power-up the Romi
 #    connect to a WiFi network where the romi is on.
 #
-#    python -m robotpy sim --wc-client
+#    python -m robotpy sim --ws-client
 #
 # By default the WPILib simulation GUI will be displayed. To disable the display
 # you can add the --nogui option

@@ -132,7 +132,7 @@ Successfully installed robotpy-hal-2024.3.2.1 robotpy-halsim-ws-2024.3.2.1 robot
     * This step can be confusing for those that know how to simulate and deploy to full-sized FRC robots. Use RobotPy to
       launch the WPILib simulator to control the Romi from the Windows PowerShell that is in the `romiReferencePython` directory:
       ```commandline
-      python -m robotpy sim --wc-client
+      python -m robotpy sim --ws-client
       ```
       resulting in:
       ```commandline

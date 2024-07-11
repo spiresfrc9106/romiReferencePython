@@ -4,6 +4,7 @@
 #
 
 [tool.robotpy]
+
 # Version of robotpy this project depends on
 # to see what versions are available: https://pypi.org/pypi/robotpy/json
 
@@ -14,7 +15,7 @@ robotpy_version = "2024.3.2.2"
 # -> equivalent to `pip install robotpy[extra1, ...]
 robotpy_extras = [
     # "all",
-    # "apriltag",
+    #"apriltag",
     "commands2",
     # "cscore",
     # "navx",

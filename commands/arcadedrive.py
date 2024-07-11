@@ -46,4 +46,3 @@ class ArcadeDrive(commands2.Command):
         log("driveGyroAngleX", x, "todo")
         log("driveGyroAngleY", y, "todo")
         log("driveGyroAngleZ", z, "todo")
-

@@ -1,6 +1,6 @@
 import wpilib
 from wpimath.geometry import Pose2d, Rotation2d, Transform2d, Translation2d
-from jormungandr.choreoTrajectory import ChoreoTrajectoryState
+# todo xyzzy from jormungandr.choreoTrajectory import ChoreoTrajectoryState
 from utils.constants import FIELD_LENGTH_FT
 from utils.units import ft2m
 
@@ -50,10 +50,10 @@ def transform(givenObject):
         else:
             return givenObject
 
-    elif isinstance(givenObject,ChoreoTrajectoryState):
-        if onRed():
-            return givenObject.flipped()
-        else:
-            return givenObject
+    # todo xyzzy elif isinstance(givenObject,ChoreoTrajectoryState):
+    #    if onRed():
+    #        return givenObject.flipped()
+    #    else:
+    #        return givenObject
 
     raise TypeError("transform function received unknown type")

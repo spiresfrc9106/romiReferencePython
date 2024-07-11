@@ -50,10 +50,12 @@ import typing
 import romi
 import wpilib
 import commands2
+from robotConfig import webserverConstructorOrNone
 
 from robotcontainer import RobotContainer
 from utils.signalLogging import SignalWrangler
 from utils.signalLogging import log
+from utils.crashLogger import CrashLogger
 from utils.segmentTimeTracker import SegmentTimeTracker
 from utils.robotIdentification import RobotIdentification
 
@@ -81,13 +83,29 @@ class MyRobot(commands2.TimedCommandRobot):
         This function is run when the robot is first started up and should be used for any
         initialization code.
         """
+        # Since we're defining a bunch of new things here, tell pylint
+        # to ignore these instantiations in a method.
+        # pylint: disable=attribute-defined-outside-init
 
         # Instantiate our RobotContainer.  This will perform all our button bindings, and put our
         # autonomous chooser on the dashboard.
         self.container = RobotContainer()
 
         self.rId = RobotIdentification()
+        self.crashLogger = CrashLogger()
         self.stt = SegmentTimeTracker()
+        # self.stt.doOptionalPerhapsMarks = True # Uncomment this line to turn on optional stt perhapsMark methods
+        # self.stt.longLoopThresh = 0.020 # Uncomment this line adjust the stt logging time threshold in seconds
+        #                                                                        1         2         3
+        #                                                               12345678901234567890123456789012345
+        self.markStartCrashName = self.stt.makePaddedMarkName("start-crashLogger")
+        self.markCrashName = self.stt.makePaddedMarkName("crashLogger")
+        self.markResetGyroName = self.stt.makePaddedMarkName("driveTrain.resetGyro")
+        self.markDriveTrainName = self.stt.makePaddedMarkName("driveTrain.update")
+        self.markSignalWranglerName = self.stt.makePaddedMarkName("SignalWrangler().publishPeriodic")
+        self.markCalibrationWranglerName = self.stt.makePaddedMarkName("CalibrationWrangler().update")
+        self.markFautWranglerName = self.stt.makePaddedMarkName("FaultWrangler().update()")
+        self.webserver = webserverConstructorOrNone()
 
     def robotPeriodic(self) -> None:
         """This function is called every 20 ms, no matter the mode. Use this for items like diagnostics
@@ -101,7 +119,9 @@ class MyRobot(commands2.TimedCommandRobot):
         # and running subsystem periodic() methods.  This must be called from the robot's periodic
         # block in order for anything in the Command-based framework to work.
         
+        self.stt.start()
 
+        self.stt.perhapsMark(self.markStartCrashName)
 
         commands2.CommandScheduler.getInstance().run()
         leftEncoderCount = self.container.drivetrain.getLeftEncoderCount()

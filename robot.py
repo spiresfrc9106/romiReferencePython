@@ -54,6 +54,8 @@ import commands2
 from robotcontainer import RobotContainer
 from utils.signalLogging import SignalWrangler
 from utils.signalLogging import log
+from utils.segmentTimeTracker import SegmentTimeTracker
+from utils.robotIdentification import RobotIdentification
 
 # Uncomment these lines and set the port to the pycharm debugger to use the
 # Pycharm debug server to debug this code.
@@ -83,6 +85,9 @@ class MyRobot(commands2.TimedCommandRobot):
         # Instantiate our RobotContainer.  This will perform all our button bindings, and put our
         # autonomous chooser on the dashboard.
         self.container = RobotContainer()
+
+        self.rId = RobotIdentification()
+        self.stt = SegmentTimeTracker()
 
     def robotPeriodic(self) -> None:
         """This function is called every 20 ms, no matter the mode. Use this for items like diagnostics

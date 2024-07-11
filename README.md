@@ -168,3 +168,52 @@ Successfully installed robotpy-hal-2024.3.2.1 robotpy-halsim-ws-2024.3.2.1 robot
   * Drive your Romi around with your xbox controller joysticks. TODO, on a Logitech controller the rotate left and right is backwards.
 
 
+# Other notes
+
+Todo add a link to https://docs.wpilib.org/en/stable/docs/romi-robot/index.html
+
+https://github.com/wpilibsuite/WPILibPi
+
+https://github.com/RPi-Distro/pi-gen
+
+so far this has not worked: https://raspberrypihq.com/how-to-add-wifi-to-the-raspberry-pi/
+
+
+To install photon vision, connect pi over ethernet, `ssh pi@wpilibpi.local`, first follow these instructions:
+
+https://docs.photonvision.org/en/latest/docs/installation/sw_install/romi.html
+
+Then these instructions:
+
+https://docs.photonvision.org/en/latest/docs/installation/sw_install/other-coprocessors.html
+
+Then use web browser at `pilibpi.local` to set filesystem to be writeable.
+
+Then `sudo systemctl restart photonvision.service`
+
+Then the this `http://10.0.0.2:5800/#/dashboard` is available.  But see: `https://www.chiefdelphi.com/t/romi-photonvision-startup-errors/452444/7` for the problem we are having
+
+Perhaps this pull request: `https://github.com/wpilibsuite/WPILibPi/pull/233`
+
+It might be good to compare this working Romi tag: `https://github.com/wpilibsuite/WPILibPi/releases/tag/v2023.2.1` to the latest
+and to the pull request.
+
+```commandline
+http://10.0.0.2/
+```
+
+```commandline
+ssh pi@wpilibpi.local
+```
+
+or
+
+```commandline
+ssh pi@10.0.0.2
+```
+
+password: `raspberry`
+
+```commandline
+cat /etc/os-release
+```
